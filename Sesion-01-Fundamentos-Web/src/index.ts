@@ -61,8 +61,15 @@ export type Headers = Record<string, string>;
  * que lo manejes aparte, se propagará solo.
  */
 export function parseUrl(url: string): UrlParts {
-  // TODO: tu implementación aquí
-  throw new Error("Not implemented");
+  const y:URL = new URL(url)
+  //
+  return {
+    protocol: y.protocol,
+    host: y.host,
+    pathname: y.pathname,
+    search: y.search,
+    query: Array.from(y.searchParams.entries())
+  }
 }
 
 /**
