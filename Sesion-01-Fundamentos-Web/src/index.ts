@@ -61,7 +61,7 @@ export type Headers = Record<string, string>;
  * que lo manejes aparte, se propagará solo.
  */
 export function parseUrl(url: string): UrlParts {
-  const y:URL = new URL(url)
+  const y = new URL(url);
   //
   return {
     protocol: y.protocol,
@@ -130,10 +130,18 @@ export function classifyStatus(code: number): StatusCategory {
  * nombre y valor. Recuerda `.trim()` para quitar espacios sobrantes.
  */
 export function parseHeaders(text: string): Headers {
-  // TODO: tu implementación aquí
-  throw new Error("Not implemented");
-}
+  const lineas = text.split("\n");
+  const headers: Headers = {};
+  for (const linea of lineas) {
+    const idx = linea.indexOf(":");
+    if (idx === -1) continue;
 
+    const nombre = linea.slice(0, idx).trim();
+    const valor = linea.slice(idx + 1).trim();
+    headers[nombre] = valor;
+  }
+  return headers;
+}
 /**
  * TODO: Combina las funciones anteriores en un resumen legible.
  *
@@ -153,9 +161,27 @@ export function summarizeRequest(
   status: number,
   headersText: string,
 ): string {
-  // TODO: tu implementación aquí
-  throw new Error("Not implemented");
+  const parts = parseUrl(url);
+  const category = classifyStatus(status);
+  const headers = parseHeaders(headersText);
+
+  const headerLines = Object.entries(headers)
+  .map(([nombre, valor]) => `  • ${nombre}: ${valor}`)
+  .join("\n");
+
+  const lineas: string[] = [];
+  lineas.push("Resumen de la petición");
+  lineas.push(`URL:     ${url}`);
+  lineas.push(`Host:    ${parts.host}`);
+  lineas.push(`Path:    ${parts.pathname}`);
+  lineas.push(`Status:  ${status} (${category})`);
+  lineas.push("Headers:");
+  lineas.push(headerLines || "(  Sin headers)");
+
+  return lineas.join("\n");
+
 }
+
 
 // ---------------------------------------------------------------------------
 // CLI (opcional, pero recomendado para probar manualmente)
