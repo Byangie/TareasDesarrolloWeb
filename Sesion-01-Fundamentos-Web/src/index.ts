@@ -60,6 +60,14 @@ export type Headers = Record<string, string>;
  * Si la URL no es válida, `new URL()` lanza TypeError — no hace falta
  * que lo manejes aparte, se propagará solo.
  */
+
+/**
+ * Obtiene las partes principales de una URL utilizando la clase URL de Node.js.
+ *
+ * @param url Dirección web que se desea analizar.
+ * @returns Objeto con el protocolo, host, ruta y parámetros de la URL.
+ */
+
 export function parseUrl(url: string): UrlParts {
   const y = new URL(url);
   //
@@ -85,6 +93,14 @@ export function parseUrl(url: string): UrlParts {
  *
  * Pista: un único `if / else if` con comparaciones de rangos basta.
  */
+
+/**
+ * Determina la categoría a la que pertenece un código de estado HTTP.
+ *
+ * @param code Código de estado HTTP.
+ * @returns Categoría correspondiente al código recibido.
+ */
+
 export function classifyStatus(code: number): StatusCategory {
 
   if (code >= 100 && code <= 199){
@@ -129,6 +145,13 @@ export function classifyStatus(code: number): StatusCategory {
  * Pista: `text.split("\n")` te da las líneas; `String.split(":")` te separa
  * nombre y valor. Recuerda `.trim()` para quitar espacios sobrantes.
  */
+
+/**
+ * Convierte un texto con cabeceras HTTP en un objeto de tipo Headers.
+ *
+ * @param text Texto que contiene las cabeceras HTTP.
+ * @returns Objeto con los nombres y valores de las cabeceras.
+ */
 export function parseHeaders(text: string): Headers {
   const lineas = text.split("\n");
   const headers: Headers = {};
@@ -156,6 +179,17 @@ export function parseHeaders(text: string): Headers {
  *     • Content-Type: application/json
  *     • Authorization: Bearer abc
  */
+
+/**
+ * Genera un resumen de una petición HTTP utilizando la URL,
+ * el código de estado y las cabeceras proporcionadas.
+ *
+ * @param url URL de la petición.
+ * @param status Código de estado HTTP.
+ * @param headersText Cabeceras HTTP en formato de texto.
+ * @returns Resumen de la petición en formato de cadena.
+ */
+
 export function summarizeRequest(
   url: string,
   status: number,
