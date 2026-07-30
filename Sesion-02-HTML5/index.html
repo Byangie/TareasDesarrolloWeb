@@ -3,55 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Sitio — Inicio</title>
+  <title>Mis Hobbies, Películas y Libros - Inicio</title>
   <!-- TODO: agrega meta description, autor, favicon -->
+  <link rel="icon" href="img/LogoA.jpg" type="image/jpg">
+  <meta name="description" content="Mini sitio web sobre hobbies, películas y libros favoritos">
+  <meta name="author" content="Angelica Mejía">
 </head>
 <body>
 
   <!-- TODO: header con navegacion a las otras 3 paginas -->
   <header>
-    <h1>Mi Sitio</h1>
+    <h1>Mis hobbies, películas y libros favoritos</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="pagina1.html">Hobbies</a></li>
+        <li><a href="pagina2.html">Películas</a></li>
+        <li><a href="pagina3.html">Libros</a></li>
+      </ul>
+    </nav>
     <!-- TODO: <nav> con enlaces a pagina1.html, pagina2.html, pagina3.html -->
   </header>
 
   <main>
     <article>
       <h2>Bienvenido</h2>
+      <p>Esto es un poco de lo que tendrá mi sitio web</p>
 
       <!-- TODO: usa <figure> + <figcaption> para una imagen con alt y loading="lazy" -->
-      <img src="https://via.placeholder.com/800x400"
-           alt="Imagen de bienvenida"
-           width="800" height="400"
-           loading="lazy">
-
-      <p>Parrafo de introduccion. Lorem ipsum dolor sit amet.</p>
+      <figure>
+        <img src="img/hobbies.jpg"
+             alt="Actividades relacionadas con mis hobbies"
+             width="400" height="400"
+             loading="lazy">
+        <figcaption>Representación de algunos de mis hobbies favoritos</figcaption>
+      </figure>
+      <figure>
+        <img src="img/peliculas.jpg"
+             alt="Collage de películas"
+             width="400" height="400"
+             loading="lazy">
+        <figcaption>Representación de algunas de mis películas favoritas</figcaption>
+      </figure>
+      <figure>
+        <img src="img/libros.jpg"
+             alt="Collage de libros"
+             width="400" height="400"
+             loading="lazy">
+        <figcaption>Representación de libros</figcaption>
+            
+      </figure>
+      <p>En este sitio compartiré algunos de mis hobbies, películas y libros favoritos</p>
 
       <!-- TODO: usa <dialog> + un boton con command/commandfor (Invoker Commands API) -->
       <dialog id="bienvenida">
-        <h3>Hola!</h3>
-        <p>Esto es un dialog modal nativo.</p>
+        <h3>Bienvenido</h3>
+        <p>Gracias por visitar mi sitio web.
+           Aquí encontrarás información sobre mis hobbies, películas y libros favoritos
+        </p>
         <form method="dialog">
           <button>Cerrar</button>
         </form>
       </dialog>
       <button command="show-modal" commandfor="bienvenida">
-        Abrir dialog
+        Agradecimiento
       </button>
 
       <!-- TODO: usa popover para un menu o tooltip -->
-      <button popovertarget="menu-ayuda">?</button>
+      <button popovertarget="menu-ayuda">Ayuda</button>
       <div id="menu-ayuda" popover>
         <h4>Ayuda</h4>
-        <p>Contenido del popover...</p>
+        <p>Haz clic en cada sección para conocer mis hobbies, películas y libros favoritos </p>
       </div>
 
       <!-- TODO: formulario con al menos 3 inputs (text, email, etc.) -->
+      <h3>Un poco más de ti</h3>
       <form action="#" method="POST">
         <label for="nombre">Nombre:</label>
         <input id="nombre" type="text" name="nombre" required minlength="3">
 
         <label for="email">Email:</label>
         <input id="email" type="email" name="email" required>
+
+        <label for="hobby">Hobby favorito:</label>
+        <input id="hobby" type="text" name="hobby" required>
+
+        <label for="pelicula">Película favorita:</label>
+        <input id="pelicula" type="text" name="pelicula" required>
+
+        <label for="libro">Libro favorito:</label>
+        <input id="libro" type="text" name="libro" required>
 
         <label for="mensaje">Mensaje:</label>
         <textarea id="mensaje" name="mensaje" rows="4"></textarea>
@@ -61,6 +102,18 @@
     </article>
 
     <!-- TODO: usa <aside> para contenido lateral -->
+    <aside>
+      <h3>Datos curiosos</h3>
+      <p>Cuando me obsesiono con un libro o una película 
+         puedo pasar horas y horas disfrutándolo hasta terminarlo</p>
+    </aside>
+    <aside>
+      <h3>Mis redes sociales</h3>
+      <ul>
+        <li>Facebook: Angelica Mejia</li>
+        <li>Instagram: Angievirx</li>
+      </ul>
+    </aside>
   </main>
 
   <footer>
