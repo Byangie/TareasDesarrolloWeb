@@ -3,30 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Sitio — Pagina 2</title>
+  <title>Películas Favoritas — Página 2</title>
 </head>
 <body>
   <header>
-    <h1>Mi Sitio</h1>
+    <h1>Películas</h1>
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="pagina1.html">Pagina 1</a></li>
-        <li><a href="pagina2.html">Pagina 2</a></li>
-        <li><a href="pagina3.html">Pagina 3</a></li>
+        <li><a href="pagina1.html">Hobbies</a></li>
+        <li><a href="pagina2.html">Películas</a></li>
+        <li><a href="pagina3.html">Libros</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <section>
-      <h2>Pagina 2</h2>
-      <p>TODO: contenido aqui.</p>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-      </ul>
+      <h2>Mis películas favoritas</h2>
+      <p>Me gusta ver películas de diferentes géneros dependiendo de mi estado de ánimo.</p>
+      <article>
+        <h3>Películas románticas</h3>
+        <ul>
+          <li>Yo antes de ti</li>
+          <li>Diario de Noa</li>
+          <li>Bajo la misma estrella</li>
+        </ul>
+
+        <figure>
+          <img src="img/peliculasrom.jpg"
+          alt="Collage de películas románticas"
+          width="400" height="400"
+          loading="lazy">
+          <figcaption>Algunas de mis películas románticas favoritas</figcaption>
+        </figure>
+      </article>
+      <article>
+        <h3>Películas de Acción</h3>
+        <ul>
+          <li>Rápidos y Furiosos</li>
+          <li>Spider-Man</li>
+          <li>Venganza</li>
+        </ul>
+
+        <figure>
+          <img src="img/peliculasac.jpg"
+          alt="Collage de películas de Acción"
+          width="400" height="400"
+          loading="lazy">
+          <figcaption>Algunas de mis películas de acción favoritas</figcaption>
+        </figure>
+      </article>
+      <article>
+        <h3>Películas de Comedia</h3>
+        <ul>
+          <li>Un viernes de locos</li>
+          <li>¿Qué pasó ayer?</li>
+          <li>Son como niños</li>
+        </ul>
+
+        <figure>
+          <img src="img/peliculasaco.jpeg"
+          alt="Collage de películas divertidas"
+          width="400" height="400"
+          loading="lazy">
+          <figcaption>Algunas de mis películas de comedia favoritas</figcaption>
+        </figure>
+
+      </article>
+      <article>
+        <h3>Películas de Fantasía</h3>
+        <ul>
+          <li>Harry Potter</li>
+          <li>Alicia en el país de las maravillas</li>
+          <li>Abracadabra</li>
+        </ul>
+        <figure>
+          <img src="img/peliculasfan.png"
+          alt="Collage de películas de fantasía"
+          width="400" height="400"
+          loading="lazy">
+          <figcaption>Algunas de mis películas de fantasía favoritas</figcaption>
+        </figure>
+      </article>
+
+      <form action="#" method="POST">
+        <fieldset>
+          <legend>¿Cuál es tu género favorito?</legend>
+          <input type="radio" id="romanticas" name="genero" value="romanticas" required>
+          <label for="romanticas">Románticas</label>
+          <br>
+          <input type="radio" id="accion" name="genero" value="accion">
+          <label for="accion">Acción</label>
+          <br>
+          <input type="radio" id="comedia" name="genero" value="comedia">
+          <label for="comedia">Comedia</label>
+          <br>
+          <input type="radio" id="fantasia" name="genero" value="fantasia">
+          <label for="fantasia">Fantasía</label>
+        </fieldset>
+        <br>
+        <button type="submit">Enviar</button>
+      </form>
     </section>
   </main>
 

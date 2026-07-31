@@ -3,30 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Sitio — Pagina 2</title>
+  <title>Mis libros favoritos — Página 3</title>
 </head>
 <body>
   <header>
-    <h1>Mi Sitio</h1>
+    <h1>Libros</h1>
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="pagina1.html">Pagina 1</a></li>
-        <li><a href="pagina2.html">Pagina 2</a></li>
-        <li><a href="pagina3.html">Pagina 3</a></li>
+        <li><a href="pagina1.html">Hobbies</a></li>
+        <li><a href="pagina2.html">Películas</a></li>
+        <li><a href="pagina3.html">Libros</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <section>
-      <h2>Pagina 2</h2>
-      <p>TODO: contenido aqui.</p>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-      </ul>
+      <h2>Mis libros favoritos</h2>
+      <p>Me gusta leer diferentes tipos de libros porque me entretienen y me ayudan a relajarme.
+         Aunque mis favoritos suelen ser las novelas románticas.
+      </p>
+
+      <article>
+        <h3>Mis novelas románticas favoritas</h3>
+        <ol>
+          <li>El arte de ser nosotros</li>
+          <li>Perfectos mentirosos</li>
+          <li>Releasing 10</li>
+          <li>Antes de diciembre</li>
+          <li>El color de las cosas invisibles</li>
+        </ol>
+
+        <figure>
+          <img src="img/libro1.jpeg"
+          alt="Portada del libro El arte de ser nosotros"
+          width="400" height="400"
+          loading="lazy">
+
+          <figcaption>Top 1</figcaption>
+        </figure>
+
+        <figure>
+          <img src="img/libro2.jpg"
+          alt="Portada del libro Perfectos mentirosos"
+          width="400" height="400"
+          loading="lazy">
+
+          <figcaption>Top 2</figcaption>
+        </figure>
+
+        <figure>
+          <img src="img/libro3.jpg"
+          alt="Portada del libro Releasing 10"
+          width="400" height="400"
+          loading="lazy">
+
+          <figcaption>Top 3</figcaption>
+        </figure>
+      </article>
+
+      <article>
+        <h3>Datos curiosos</h3>
+        <ul>
+          <li>El libro más vendido es el de "Don Quijote de la Mancha", con más de 500 millones de copias impresas.</li>
+          <li>En el antiguo Egipto, las bibliotecas eran conocidas poéticamente como los "tesoros de los remedios del alma".</li>
+          <li>De un solo árbol se pueden fabricar hasta 50 libros.</li>
+        </ul>
+      </article>
+
+      <form action="#" method="POST">
+        <fieldset>
+          <legend>¿Te gusta leer?</legend>
+          <input type="radio" id="si" name="lectura" value="si" required>
+          <label for="si">Sí</label>
+
+          <input type="radio" id="no" name="lectura" value="no">
+          <label for="no">No</label>
+        </fieldset>
+        <br>
+        <button type="submit">Enviar</button>
+      </form>
+      <br>
+
+      <form action="#" method="POST">
+        <label for="librofavorito">¿Cuál es tu libro favorito?</label>
+        <input id="librofavorito" type="text" name="librofavorito">
+        <button type="submit">Enviar</button>
+      </form>
+
     </section>
   </main>
 
