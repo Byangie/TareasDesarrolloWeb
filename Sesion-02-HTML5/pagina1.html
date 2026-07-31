@@ -3,17 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Sitio — Pagina 1</title>
+  <title>Mis hobbies — Pagina 1</title>
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 800px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    th {
+      background-color: lightgray;
+    }
+
+  </style>
 </head>
 <body>
   <header>
-    <h1>Mi Sitio</h1>
+    <h1>Mis hobbies</h1>
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="pagina1.html">Pagina 1</a></li>
-        <li><a href="pagina2.html">Pagina 2</a></li>
-        <li><a href="pagina3.html">Pagina 3</a></li>
+        <li><a href="pagina1.html">Hobbies</a></li>
+        <li><a href="pagina2.html">Películas</a></li>
+        <li><a href="pagina3.html">Libros</a></li>
         <li><a href="https://google.com" target="_blank" rel="noopener noreferrer">Google</a></li>
       </ul>
     </nav>
@@ -21,8 +38,118 @@
 
   <main>
     <section>
-      <h2>Seccion de la pagina 1</h2>
-      <p>TODO: contenido aqui.</p>
+      <h2>Mis hobbies favoritos</h2>
+      <p>En mi tiempo libre disfruto realizar diferentes actividades que me ayudan a mantenerme activa,
+      perderme entre las páginas de un libro y compartir tiempo con las personas que más quiero.
+      </p>
+
+      <table>
+        <caption>Algunos de mis hobbies favoritos</caption>
+        <thead> 
+          <tr>
+            <th>Hobby</th>
+            <th>Frecuencia</th>
+            <th>Razón por la que me gusta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gimnasio</td>
+            <td>Cinco veces por semana</td>
+            <td>Me ayuda a distraerme y desestresarme</td>
+          </tr>
+
+          <tr>
+            <td>Leer</td>
+            <td>Frecuentemente</td>
+            <td>Me distraigo y me relajo</td>
+          </tr>
+
+          <tr>
+            <td>Correr</td>
+            <td>Algunas veces por mes</td>
+            <td>Me ayuda a despejar mi mente</td>
+          </tr>
+
+          <tr>
+            <td>Tiempo en familia</td>
+            <td>Siempre que puedo</td>
+            <td>Disfruto pasar tiempo con mi familia</td>
+          </tr>
+
+          <tr>
+            <td>Ver películas</td>
+            <td>Fines de semana</td>
+            <td>Me entretengo</td>
+          </tr>
+        </tbody>
+
+      </table>
+      <hr>
+      <figure>
+        <img src="img/gym.jpg" 
+             alt="Entrenando en el gimnasio" 
+             width="400" height="400"
+             loading="lazy">
+        <figcaption>Me gusta pasar tiempo en el gimnasio</figcaption>
+
+      </figure>
+      <figure>
+        <img src="img/leer.jpg" 
+             alt="Leyendo un libro" 
+             width="400" height="400"
+             loading="lazy">
+        <figcaption>Me gusta leer diferentes novelas</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/correr.jpg" 
+             alt="Corriendo" 
+             width="400" height="400"
+             loading="lazy">
+        <figcaption>Me gusta correr de vez en cuando</figcaption>
+
+      </figure>
+
+      <figure>
+        <img src="img/familia.jpg" 
+             alt="Pasar tiempo con familia" 
+             width="400" height="400"
+             loading="lazy">
+        <figcaption>Me gusta pasar tiempo con mi familia</figcaption>
+      </figure>
+      <figure>
+        <img src="img/verpeliculas.jpg" 
+             alt="Viendo películas en mi tiempo libre" 
+             width="400" height="400"
+             loading="lazy">
+        <figcaption>Me gusta ver peliculas en mis tiempos libres</figcaption>
+
+      </figure>  
+
+      <hr>
+
+      <form action="#" method="POST">
+        <fieldset>
+          <legend>¿Qué hobbies te gustan?</legend>
+          <input type="checkbox" id="gym" name="hobby" value="gym">
+          <label for="gym">Gym</label>
+          <br>
+          <input type="checkbox" id="leer" name="hobby" value="leer">
+          <label for="leer">Leer</label>
+          <br>
+          <input type="checkbox" id="correr" name="hobby" value="correr">
+          <label for="correr">Correr</label>
+          <br>
+          <input type="checkbox" id="familia" name="hobby" value="familia">
+          <label for="familia">Pasar tiempo con tu familia</label>
+          <br>
+          <input type="checkbox" id="pelis" name="hobby" value="pelis">
+          <label for="pelis">Ver películas</label>
+        </fieldset>
+        <br>
+        <button type="submit">Enviar</button>
+      </form>
     </section>
   </main>
 
