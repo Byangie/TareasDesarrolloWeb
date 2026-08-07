@@ -59,7 +59,7 @@ h1{
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
+    
 }
 .producto img{
     width: 100%;
@@ -79,3 +79,70 @@ h1{
     color: rgb(228, 228, 246);
     font-weight: 700;
 }
+
+.precio{
+    color: #a1d9ff;
+    font-weight: 700;
+}
+
+.btn-comprar{
+    padding: 10px;
+    color:#15425f;
+    background: rgb(227, 248, 255);
+    border-radius: 5px;
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    width: 150px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-comprar:hover{
+    background: rgb(181, 255, 244);
+    color: rgb(72, 72, 98);
+}
+
+h2{
+    color: #415a6b;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.todo-list{
+    margin-top: 30px;
+}
+
+.tareas{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+}
+
+.tarea{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: #1f2d3d;
+    background-color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.tarea:nth-child(even){
+    background-color: #eef6ff;
+}
+
+.tarea input[type="checkbox"]{
+    width: 18px;
+    height: 18px;
+    accent-color: cornflowerblue;
+    cursor: pointer;
+}
+
+.tarea label{
+    cursor: pointer;
+}
+
