@@ -77,6 +77,14 @@ export function eliminarTarea(id) {
 export function toggleTarea(id) {
     // TODO: recorrer `tareas` y cambiar `completada` de la que coincida.
     // Devuelve true si la encontró.
+    const tarea = tareas.find((tarea) => tarea.id === id);
+    if(!tarea){
+        return false;
+    }
+
+    tarea.completada = !tarea.completada;
+
+    return true
 }
 
 /**
@@ -86,6 +94,15 @@ export function toggleTarea(id) {
  */
 export function filtrarTareas(filtro) {
     // TODO: implementar la lógica de filtrado.
+    if (filtro === "pendientes"){
+        return tareas.filter((tarea) => !tarea.completada);
+    }
+
+    if (filtro === "completadas"){
+        return tareas.filter((tarea) => tarea.completada);
+    }
+
+    return tareas;
 }
 
 /**
