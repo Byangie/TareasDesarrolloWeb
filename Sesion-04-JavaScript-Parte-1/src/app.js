@@ -34,9 +34,7 @@ export function generarId() {
  *   La tarea creada, o null si el texto es vacío.
  */
 export function agregarTarea(texto) {
-    // TODO: validar que `texto` no esté vacío (trim), crear el objeto
-    // { id, texto, completada: false }, hacer push al array `tareas`
-    // y devolverlo. Si el texto es vacío, devolver null.
+
     const textoLimpio = texto.trim();
 
     if (textoLimpio === ""){
@@ -60,13 +58,11 @@ export function agregarTarea(texto) {
  * @returns {boolean}
  */
 export function eliminarTarea(id) {
-    // TODO: filtrar `tareas` para quitar la que tenga ese id.
-    // Devuelve true si eliminó al menos una, false si no.
-    const cantidaAntes = tareas.length;
+    const cantidadAntes = tareas.length;
 
     tareas = tareas.filter((tarea) => tarea.id !== id);
 
-    return tareas.length < cantidaAntes
+    return tareas.length < cantidadAntes
 }
 
 /**
@@ -75,8 +71,6 @@ export function eliminarTarea(id) {
  * @returns {boolean}
  */
 export function toggleTarea(id) {
-    // TODO: recorrer `tareas` y cambiar `completada` de la que coincida.
-    // Devuelve true si la encontró.
     const tarea = tareas.find((tarea) => tarea.id === id);
     if(!tarea){
         return false;
@@ -93,7 +87,6 @@ export function toggleTarea(id) {
  * @returns {Array}
  */
 export function filtrarTareas(filtro) {
-    // TODO: implementar la lógica de filtrado.
     if (filtro === "pendientes"){
         return tareas.filter((tarea) => !tarea.completada);
     }
@@ -109,17 +102,24 @@ export function filtrarTareas(filtro) {
  * Persiste el array `tareas` en localStorage como JSON.
  */
 export function guardar() {
-    // TODO: usar localStorage.setItem con la clave STORAGE_KEY.
-    // El valor debe ser JSON.stringify(tareas).
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tareas));
 }
 
 /**
  * Carga las tareas desde localStorage. Si no hay nada, deja el array vacío.
  */
 export function cargar() {
-    // TODO: leer localStorage con STORAGE_KEY.
-    // Si existe, hacer JSON.parse y asignarlo a `tareas`.
-    // Si no existe o falla, `tareas` se queda como [].
+    try{
+        const datos = localStorage.getItem(STORAGE_KEY);
+
+        if(datos){
+            tareas = JSON.parse(datos);
+        } else {
+            tareas = [];
+        }
+    } catch {
+        tareas = []
+    }
 }
 
 // =====================================================
