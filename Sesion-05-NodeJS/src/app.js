@@ -59,7 +59,21 @@ function leerBody(req) {
  * @returns {{ nombre: string, puerto: number }}
  */
 export function parsearArgumentos(argv) {
-    throw new Error('Not implemented: parsearArgumentos');
+    let nombre = 'invitado';
+    let puerto = 3000;
+
+    const indiceNombre = argv.indexOf('--nombre');
+    const indicePuerto = argv.indexOf('--puerto');
+
+    if (indiceNombre !== -1 && argv[indiceNombre + 1] && !argv[indiceNombre + 1].startsWith('--')){
+        nombre = argv[indiceNombre + 1];
+    }
+
+    if (indicePuerto !== -1 && argv[indicePuerto + 1 ] && !argv[indicePuerto + 1].startsWith('--')){
+        puerto = Number(argv[indicePuerto + 1]);
+    }
+
+    return {nombre, puerto};
 }
 
 /**
@@ -72,7 +86,15 @@ export function parsearArgumentos(argv) {
  * @returns {{ puerto: number, nombreApp: string, archivoDatos: string }}
  */
 export function obtenerConfig(env) {
-    throw new Error('Not implemented: obtenerConfig');
+    const puerto = env.PORT ? Number(env.PORT) : 3000;
+    const nombreApp = env.NOMBRE_APP || 'mensajes-api';
+    const archivoDatos = env.ARCHIVO_DATOS || 'data/mensajes.json';
+
+    return {
+        puerto,
+        nombreApp,
+        archivoDatos
+    };
 }
 
 /**
@@ -80,7 +102,18 @@ export function obtenerConfig(env) {
  * @returns {{ plataforma: string, nucleos: number, memoriaLibreMB: number, hostname: string }}
  */
 export function infoSistema() {
-    throw new Error('Not implemented: infoSistema');
+    const plataforma = os.platform();
+    const nucleos = os.cpus().length;
+    const memoriaLibreMB = Math.round(os.freemem() / 1024 / 1024);
+    const hostname = os.hostname();
+
+    return {
+        plataforma,
+        nucleos,
+        memoriaLibreMB,
+        hostname
+    };
+    
 }
 
 /**
