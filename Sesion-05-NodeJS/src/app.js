@@ -217,7 +217,79 @@ export async function agregarMensaje(archivoDatos, texto) {
  * @returns {import('node:http').Server}
  */
 export function crearServidor(config = {}) {
-    throw new Error('Not implemented: crearServidor');
+    const archivoDatos = config.archivoDatos || 'data/mensajes.json';
+    const nombreApp = config.nombreApp || 'mensajes-api';
+    const logger = config.logger || crearLogger();
+
+    const servidor = http.createServer(async (req, res) => {
+
+        logger.registrar(`${req.method} ${req.url}`);
+
+        if(req.method === 'GET' && req.url === '/'){
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+
+            const respuesta = {
+                mensaje: `Bienvenido a ${nombreApp}`,
+                hora:new Date().toISOString() ,
+                sistema: infoSistema()
+            };
+
+            return res.end(JSON.stringify(respuesta));
+        }
+
+        if(req.method === 'GET' && req.url === '/mensajes'){
+            const mensajes = await leerMensajes(archivoDatos);
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+
+            return res.end(JSON.stringify(mensajes));
+
+        }
+
+        if(req.method === 'POST' && req.url === '/mensajes'){
+            try
+            {
+                const body = await leerBody(req);
+                const datos = JSON.parse(body);
+
+                if(!datos.texto || !datos.texto.trim()){
+                    res.statusCode = 400;
+                    res.setHeader('Content-Type', 'application/json');
+
+                    return res.end(JSON.stringify({
+                        error: 'El texto es obligatorio'
+                    }));
+
+                    
+                }
+
+                const nuevoMensaje = await agregarMensaje(archivoDatos, datos.texto);
+
+                res.statusCode = 201;
+                res.setHeader('Content-Type', 'application/json');
+                return res.end(JSON.stringify(nuevoMensaje));
+
+            } catch(error){
+                res.statusCode = 500;
+                res.setHeader('Content-Type', 'application/json');
+
+                return res.end(JSON.stringify({
+                    error: 'Error interno del servidor'
+                }));
+            }
+        }
+
+        res.statusCode = 404;
+        res.setHeader('Content-Type', 'application/json');
+
+        return res.end(JSON.stringify({
+            error: 'Ruta no encontrada'
+        }));
+
+    });
+
+    return servidor;
 }
 
 /**
@@ -228,6 +300,19 @@ export function crearServidor(config = {}) {
  * @returns {import('node:http').Server}
  */
 export function iniciarServidor(config = {}) {
-    throw new Error('Not implemented: iniciarServidor');
+    const puerto = config.puerto ?? 3000;
+    const logger = config.logger || crearLogger();
+
+    const servidor = crearServidor({
+        ...config,
+        logger
+    });
+
+    servidor.listen(puerto, () => {
+        logger.registrar(`Servidor en http://localhost:${puerto}`);
+
+    });
+
+    return servidor;
 }
 
