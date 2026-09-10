@@ -6,10 +6,12 @@ import { filtrarLogs, rutaAbsoluta, parsearEnv, registrarProceso, __dirname } fr
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
+const raizProyecto = join(__dirname, '..');
+
 // Cargar configuración desde un .env de ejemplo (si existe)
 async function cargarConfig() {
     try {
-        const texto = await readFile(rutaAbsoluta('config.env'), 'utf-8');
+        const texto = await readFile(join(raizProyecto, 'config.env'), 'utf-8');
         return parsearEnv(texto);
     } catch {
         return { ARCHIVO_ORIGEN: 'data/app.log', ARCHIVO_DESTINO: 'data/filtrado.log', TEXTO: 'ERROR' };
@@ -17,8 +19,8 @@ async function cargarConfig() {
 }
 
 const config = await cargarConfig();
-const origen = rutaAbsoluta(config.ARCHIVO_ORIGEN || 'data/app.log');
-const destino = rutaAbsoluta(config.ARCHIVO_DESTINO || 'data/filtrado.log');
+const origen = join(raizProyecto, config.ARCHIVO_ORIGEN || 'data/app.log');
+const destino = join(raizProyecto, config.ARCHIVO_DESTINO || 'data/filtrado.log');
 
 console.log(registrarProceso(`Ruta del proyecto: ${__dirname}`));
 console.log(registrarProceso(`Filtrando '${config.TEXTO || 'ERROR'}' de ${join(origen)} → ${join(destino)}`));
